@@ -1,0 +1,90 @@
+Default Welcome Intent
+======================
+Text response:  Hello, How can I help you? You can say "New Order" or "Track Order"
+				Good day! What can I do for you today? You can say "New Order" or "Track Order"
+				Greetings! How can I assist? You can say "New Order" or "Track Order"
+
+				
+Default Fallback Intent
+========================
+Text Response: I didn't understand. You can say 'New Order' or 'Track Order'. Also, in a new order, please mention only items from our available menu: Meal, Drink, Buffet and Snack.
+Also specify the quantity Ex: 1 Meal, 2 Snacks etc.
+
+
+Intent= new.order
+=================
+new order
+Place new order
+
+	Text Response = 
+		Ok, starting a new order. You can say things like "I want two meal and one drink". Make sure to specify a quantity for every food item! Also, we have only the following items on our menu: Meal, Drink, Buffet and Snack..
+
+		Starting new order. Specify food items and quantities. For example, you can say, "I would like to order two meal and one drink. Also, we have only the following items on our menu: Meal, Drink, Buffet and Snack..
+
+Intent= order.add - context: ongoing-order
+==========================================
+Give me 2 plates of Meal
+I'd like to order two plates of Meal,  one Snack, and 3 Drink, please.
+Can you please get me two servings of Buffet, one Snack, and one Drink?
+Please prepare 2 portions of Meal, along with one Snack and 1 Drink for me
+3 Snack, 2 Drink, 1 Buffet
+Can I get 2 plates of Meal, along with one Snack and 1 Drink?
+I'll take 2 orders of Meal, one Snack, and 1 drink, if you don't mind
+I want 1 Drink, 2 Meal and one snack, do it fast plz
+In addition, add 1 meal and 2 snack
+Moreover, include 2 drink
+Also, please give me 2 drink
+Additionally, I'd like 2 drink.
+2 snack and ok lets add one meal too
+3 meal
+Oh yes, add one snack as well
+
+Intent= order.complete - context: ongoing-order
+==========================================
+Nope
+That's all I needed
+Done ordering it
+Place an order
+Done
+That's it
+
+Intent= order.remove - context: ongoing-order
+==========================================
+No Meal and Snack in my order. please remove.
+Kindly take meal and snack off the order, please.
+I'd like to exclude meal and snack, please
+I no longer want the Buffet in my order, please remove it
+Kindly exclude the Buffet from my order
+I would like to remove the meal from my order
+Please take the snack off my order
+delete snack from my order
+hey, plz get rid of buffet and snack
+I don't want drink
+remove drink from my order
+can you remove drink?
+
+Intent= track.order
+===================
+
+check the status of my order
+track order
+track existing order
+
+Text response:
+	Definitely. What is your order id?
+	Sure. Please enter your order id.
+	Definitely. What is your order id?
+
+
+Intent= track.order - context: ongoing-tracking
+==================================================
+how about 32
+how about 40?
+here it is - 63321
+here you go: 123
+here is my order number 675
+id is 453
+here is my order id # 341
+7890
+123
+345

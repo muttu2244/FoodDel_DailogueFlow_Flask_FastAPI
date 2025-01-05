@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpressFood Delivery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ExpressFood Delivery</h2>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <div>
+                <button type="submit" name="user_type" value="customer"
+                        style="background: {{ 'blue' if user_type == 'customer' else 'grey' }}; color: white; padding: 10px; margin-right: 10px;">
+                    Customer Login
+                </button>
+                <button type="submit" name="user_type" value="restaurant"
+                        style="background: {{ 'blue' if user_type == 'restaurant' else 'grey' }}; color: white; padding: 10px;">
+                    Restaurant Login
+                </button>
+            </div>
+
+            {% if user_type == 'customer' %}
+            <div>
+                <label>Phone Number</label>
+                <input type="text" name="phone" value="{{ phone }}" maxlength="10" placeholder="Enter 10 digit number" required>
+            </div>
+
+            {% if show_otp %}
+            <div>
+                <label>Enter OTP</label>
+                <input type="text" name="otp" value="{{ otp }}" maxlength="6" placeholder="Enter 6 digit OTP" required>
+            </div>
+            {% endif %}
+
+            <input type="hidden" name="show_otp" value="{{ show_otp }}">
+            <button type="submit" style="margin-top: 10px;">{{ 'Verify OTP' if show_otp else 'Send OTP' }}</button>
+            {% else %}
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" value="{{ email }}" placeholder="Enter email" required>
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="password" name="password" value="{{ password }}" placeholder="Enter password" required>
+            </div>
+            <button type="submit" style="margin-top: 10px;">Login</button>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

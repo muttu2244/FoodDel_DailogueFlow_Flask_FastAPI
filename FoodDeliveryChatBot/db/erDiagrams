@@ -1,0 +1,84 @@
+erDiagram
+    Users {
+        int user_id PK
+        string phone
+        string email
+        string password
+        enum role
+        timestamp created_at
+    }
+
+    Restaurants {
+        int restaurant_id PK
+        string name
+        float latitude
+        float longitude
+        string address
+        bool is_active
+        timestamp created_at
+    }
+
+    Drivers {
+        int driver_id PK
+        string name
+        float rating
+        int age
+        string vehicle_type
+        bool is_active
+        timestamp created_at
+    }
+
+    Orders {
+        int order_id PK
+        int user_id FK
+        int restaurant_id FK
+        int driver_id FK
+        timestamp order_time
+        timestamp pickup_time
+        timestamp delivery_time
+        string order_type
+        float total_amount
+        enum status
+    }
+
+    Deliveries {
+        int delivery_id PK
+        int order_id FK
+        int driver_id FK
+        float start_latitude
+        float start_longitude
+        float end_latitude
+        float end_longitude
+        string weather_condition
+        string traffic_density
+        int vehicle_condition
+        bool multiple_deliveries
+        string festival
+        string city
+    }
+
+    PredictionLogs {
+        int prediction_id PK
+        int order_id FK
+        float predicted_time
+        float actual_time
+        timestamp created_at
+        float accuracy
+    }
+
+    DemandForecasts {
+        int forecast_id PK
+        timestamp time_slot
+        string city
+        string area
+        int predicted_demand
+        int actual_demand
+        float accuracy
+    }
+
+    Users ||--o{ Orders : places
+    Restaurants ||--o{ Orders : receives
+    Drivers ||--o{ Orders : delivers
+    Orders ||--|| Deliveries : has
+    Orders ||--o| PredictionLogs : generates
+    Deliveries }|--|| DemandForecasts : influences

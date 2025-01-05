@@ -1,4 +1,5 @@
 FoodDelModel/fooddelmodelenv/*
 FoodDelModel/logs/*
+FoodDeliveryChatBot/foodDelBot/
 *.pyc
 *__pycache__
