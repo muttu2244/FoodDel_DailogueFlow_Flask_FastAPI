@@ -1,0 +1,4 @@
+fooddelmodelenv/*
+logs/*
+*.pyc
+*__pycache__

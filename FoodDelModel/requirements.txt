@@ -1,0 +1,10 @@
+pandas 
+numpy
+flask
+scikit-learn
+Dataclasses
+xgboost
+werkzeug
+imbalanced-learn
+nltk
+-e . 

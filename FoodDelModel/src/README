@@ -1,0 +1,10 @@
+From FoodDelModel folder  RUN 
+   python .\app.py
+
+
+Resturant Side UI, with chatbot 
+Training and prediction 
+
+1) Delivery Time Prediction
+
+2) Driver Demand 
