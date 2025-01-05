@@ -1,4 +1,4 @@
-fooddelmodelenv/*
-logs/*
+FoodDelModel/fooddelmodelenv/*
+FoodDelModel/logs/*
 *.pyc
 *__pycache__
